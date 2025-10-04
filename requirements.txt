@@ -1,0 +1,4 @@
+picamera2
+pyyaml
+paramiko     # for SCP/SFTP
+boto3        # if you want to use AWS S3

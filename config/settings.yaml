@@ -1,0 +1,14 @@
+camera:
+  resolution: [1920, 1080]
+  preview: false
+  warmup_time: 2
+
+storage:
+  method: "scp"          # or "s3"
+  remote:
+    host: "example.com"
+    user: "pi"
+    path: "/remote/photos/"
+  aws:
+    bucket: "my-photo-bucket"
+    region: "us-east-1"
