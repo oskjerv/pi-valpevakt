@@ -1,0 +1,9 @@
+[Unit]
+Description=Run puppy watch every
+
+[Timer]
+OnCalendar=*:0/1:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

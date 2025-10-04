@@ -39,6 +39,7 @@ ENV/
 # Config and credentials
 config.json
 config.yaml
+settings.yaml
 *.ini
 *.cfg
 *.toml

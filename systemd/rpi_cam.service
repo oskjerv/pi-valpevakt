@@ -1,0 +1,10 @@
+Unit]
+Description=Run Raspberry Pi camera script
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/oivind/projects/valpevakt/
+ExecStart=/home/oivind/projects/valpevakt/.venv/bin/python3 /home/oivind/projects/valpevakt/src/main.py
+User=oivind
+Environment="PYTHONUNBUFFERED=1"

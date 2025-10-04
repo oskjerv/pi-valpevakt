@@ -3,6 +3,8 @@ camera:
   preview: false
   warmup_time: 2
 
+
+## Unfinished!
 storage:
   method: "scp"          # or "s3"
   remote:

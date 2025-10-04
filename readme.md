@@ -46,7 +46,7 @@ sudo apt full-upgrade
 
 ```
 
-Install Picamera2 with `apt` (recommended). 
+Install Picamera2 with `apt`, not of `pip`. 
 
 ```
 sudo apt install -y python3-picamera2
@@ -54,7 +54,7 @@ sudo apt install -y python3-picamera2
 
 ### Code editor
 
-I use the SSH-extension in VS Code for working. 
+I use the SSH-extension in VS Code for writing code. 
 
 ### :desktop_computer: :no_entry_sign: Headless setup
 
@@ -68,8 +68,48 @@ When installing from `requirements.txt`, you need to make `libcamera` (and other
 python3 -m venv .venv --system-site-packages
 ```
 
-
-
 ### :rocket: Execution
 
 ```python3 src/main.py```
+
+
+### :clock: Planned/regular execution
+
+Create a config file in your user root.
+
+```
+# ~/.vaplevakt_config
+PROJECT_PATH=/home/pi/projects/valpevakt
+CONFIG_PATH=/home/pi/projects/valpevakt/config/settings.yaml
+```
+
+The paths are read in `run_main.sh`.
+
+`run_main.sh` is a wrapper script for executing `main.py` regularly.
+
+Make sure that `run_main.sh` is executable: `chmod +x run_main.sh`.
+
+
+```
+# Copy systemd files to /etc/systemd/system
+sudo cp systemd/rpi_cam.service /etc/systemd/system/
+sudo cp systemd/rpi_cam.timer /etc/systemd/system/
+
+# Reload systemd daemons
+sudo systemctl daemon-reload
+
+# Enable and start the timer
+sudo systemctl enable rpi_cam.timer
+sudo systemctl start rpi_cam.timer
+
+# Check timers
+systemctl list-timers | grep rpi_cam
+
+# Check the log for issues
+journalctl -u rpi_cam.service -n 50
+
+$ Check status of service
+sudo systemctl status rpi_cam.service
+sudo systemctl status rpi_cam.timer
+
+```
