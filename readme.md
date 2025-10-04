@@ -73,7 +73,7 @@ python3 -m venv .venv --system-site-packages
 ```python3 src/main.py```
 
 
-### :clock: Planned/regular execution
+### :loop: Planned/regular execution
 
 Create a config file in your user root.
 
