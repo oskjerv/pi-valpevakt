@@ -26,9 +26,9 @@ ENV/
 # ---------------------------------------------------------------------
 
 # Captured photos and videos
-data/
-photos/
-videos/
+#data/
+#photos/
+#videos/
 *.jpg
 *.jpeg
 *.png
