@@ -1,4 +1,4 @@
-Unit]
+[Unit]
 Description=Run Raspberry Pi camera script
 After=network.target
 

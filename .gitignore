@@ -26,15 +26,10 @@ ENV/
 # ---------------------------------------------------------------------
 
 # Captured photos and videos
-#data/
-#photos/
-#videos/
-*.jpg
-*.jpeg
-*.png
-*.mp4
-*.avi
-*.mov
+
+photos/
+videos/
+
 
 # Config and credentials
 config.json
