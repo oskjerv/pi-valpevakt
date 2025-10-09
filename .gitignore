@@ -32,6 +32,7 @@ videos/
 
 
 # Config and credentials
+config/storage_settings.yaml
 config.json
 config.yaml
 settings.yaml
@@ -43,7 +44,7 @@ settings.yaml
 *.pem
 *.crt
 *.db
-secrets/
+.secrets/
 private/
 
 # ---------------------------------------------------------------------

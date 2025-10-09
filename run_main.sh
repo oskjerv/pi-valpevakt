@@ -2,6 +2,9 @@
 # run_main.sh - launcher for Raspberry Pi camera project
 # reads external config for paths
 
+# NOT IN USE AT THE MOMENT.
+# MEANT TO BE A WRAPPER SCRIPT.
+
 # Load external config (must be outside repo)
 CONFIG_FILE="$HOME/.valpevakt_config"
 if [ ! -f "$CONFIG_FILE" ]; then

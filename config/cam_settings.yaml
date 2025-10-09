@@ -1,0 +1,5 @@
+camera:
+  resolution: [1920, 1080]
+  preview: false
+  warmup_time: 2
+
