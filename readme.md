@@ -3,8 +3,9 @@
 
 ### Puppy watch :dog: :camera:
 
-A setup for taking photos every nth minute of a puppy. 
+A setup for taking photos every nth minute of a puppy.
 
+The images are appended into a .gif, and the gif is pushed to an album in Google Photos.
 #### :gear: Hardware
 
 - :computer: Raspberry Pi 4 model B (with a faulty SD-slot)
@@ -75,6 +76,8 @@ python3 -m venv .venv --system-site-packages
 
 ### :loop: Planned/regular execution
 
+NOTE: At the moment `src/main.py` is run directly in `systemd/`
+
 Create a config file in your user root.
 
 ```
@@ -104,6 +107,29 @@ sudo systemctl start rpi_cam.timer
 
 # Check timers
 systemctl list-timers | grep rpi_cam
+
+
+```
+
+### Google Photos Library API
+
+[The Photos Library API](https://developers.google.com/photos/library/reference/rest) is used to push the images/gifs to an album in Google Photos. 
+
+Resources:
+- [Configure your app](https://developers.google.com/photos/overview/configure-your-app)
+- The code suggestions from ChatGPT were quite good. (Yeah, sure I know)
+
+Steps:
+1. Follow the instructions for how to configure your app and creating OAuth 2.0 Client ID.
+2. Run `src/storage/authorize_photos.py` for authenticating and creating token. You`ll need a screen. 
+3. Run `src/storage/create_album.py` for creating and album and the album ID. 
+
+
+### Debugging
+
+Check `logs/app.log`.
+
+```
 
 # Check the log for issues
 journalctl -u rpi_cam.service -n 50
