@@ -6,6 +6,9 @@
 A setup for taking photos every nth minute of a puppy.
 
 The images are appended into a .gif, and the gif is pushed to an album in Google Photos.
+
+See `data/example` for photos of setup and an example image. 
+
 #### :gear: Hardware
 
 - :computer: Raspberry Pi 4 model B (with a faulty SD-slot)
