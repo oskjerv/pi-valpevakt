@@ -29,7 +29,7 @@ ENV/
 
 photos/
 videos/
-
+timelapses/
 
 # Config and credentials
 config/storage_settings.yaml
