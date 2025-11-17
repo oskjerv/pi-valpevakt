@@ -89,7 +89,7 @@ def upload_all_photos(config):
     album_id = config["storage"]["albumid"]
 
     photos_dir = Path("data/timelapses")
-    photos = sorted(photos_dir.glob("*.gif"))
+    photos = sorted(photos_dir.glob("*.mp4"))
 
     if not photos:
         logging.info("No photos to upload.")
