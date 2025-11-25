@@ -42,7 +42,7 @@ def create_timelapse_mp4(photo_dir="data/photos", output_dir="data/timelapses", 
         # ffmpeg command to assemble frames into MP4 (H.264)
         subprocess.run([
             "ffmpeg", "-y",
-            "-framerate", "5",
+            "-framerate", "2",
             "-i", str(temp_dir / "%04d.png"),
             "-pix_fmt", "yuv420p",
             "-vcodec", "libx264",
