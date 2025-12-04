@@ -1,0 +1,242 @@
+[
+  {
+    "timestamp": "2025-12-04T18:37:31.878827",
+    "adc": 513,
+    "voltage": 1.6548,
+    "decibels": 80.4,
+    "analog_detected": true,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 1
+  },
+  {
+    "timestamp": "2025-12-04T18:38:34.963187",
+    "adc": 514,
+    "voltage": 1.6581,
+    "decibels": 80.4,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 2
+  },
+  {
+    "timestamp": "2025-12-04T18:38:35.465790",
+    "adc": 554,
+    "voltage": 1.7871,
+    "decibels": 81.1,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 3
+  },
+  {
+    "timestamp": "2025-12-04T18:40:59.807022",
+    "adc": 513,
+    "voltage": 1.6548,
+    "decibels": 80.4,
+    "analog_detected": true,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 1
+  },
+  {
+    "timestamp": "2025-12-04T18:41:36.107254",
+    "adc": 483,
+    "voltage": 1.5581,
+    "decibels": 79.9,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 2
+  },
+  {
+    "timestamp": "2025-12-04T18:41:43.441508",
+    "adc": 511,
+    "voltage": 1.6484,
+    "decibels": 80.4,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 3
+  },
+  {
+    "timestamp": "2025-12-04T18:41:56.582305",
+    "adc": 559,
+    "voltage": 1.8032,
+    "decibels": 81.1,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 4
+  },
+  {
+    "timestamp": "2025-12-04T18:41:57.489365",
+    "adc": 584,
+    "voltage": 1.8839,
+    "decibels": 81.5,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 5
+  },
+  {
+    "timestamp": "2025-12-04T18:41:58.697713",
+    "adc": 563,
+    "voltage": 1.8161,
+    "decibels": 81.2,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 6
+  },
+  {
+    "timestamp": "2025-12-04T18:41:59.502557",
+    "adc": 549,
+    "voltage": 1.771,
+    "decibels": 81.0,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 7
+  },
+  {
+    "timestamp": "2025-12-04T18:43:49.560474",
+    "adc": 513,
+    "voltage": 1.6548,
+    "decibels": 80.4,
+    "analog_detected": true,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 1
+  },
+  {
+    "timestamp": "2025-12-04T18:44:47.421584",
+    "adc": 460,
+    "voltage": 1.4839,
+    "decibels": 79.4,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 2
+  },
+  {
+    "timestamp": "2025-12-04T18:44:47.827013",
+    "adc": 526,
+    "voltage": 1.6968,
+    "decibels": 80.6,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 3
+  },
+  {
+    "timestamp": "2025-12-04T18:45:20.912962",
+    "adc": 490,
+    "voltage": 1.5806,
+    "decibels": 80.0,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 4
+  },
+  {
+    "timestamp": "2025-12-04T18:45:25.032601",
+    "adc": 523,
+    "voltage": 1.6871,
+    "decibels": 80.6,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 5
+  },
+  {
+    "timestamp": "2025-12-04T18:45:38.266341",
+    "adc": 441,
+    "voltage": 1.4226,
+    "decibels": 79.1,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 6
+  },
+  {
+    "timestamp": "2025-12-04T18:45:42.078966",
+    "adc": 459,
+    "voltage": 1.4806,
+    "decibels": 79.4,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 7
+  },
+  {
+    "timestamp": "2025-12-04T18:45:43.484250",
+    "adc": 573,
+    "voltage": 1.8484,
+    "decibels": 81.4,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 8
+  },
+  {
+    "timestamp": "2025-12-04T18:45:44.189218",
+    "adc": 489,
+    "voltage": 1.5774,
+    "decibels": 80.0,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 9
+  },
+  {
+    "timestamp": "2025-12-04T18:45:46.396503",
+    "adc": 530,
+    "voltage": 1.7097,
+    "decibels": 80.7,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 10
+  },
+  {
+    "timestamp": "2025-12-04T18:48:01.451818",
+    "adc": 571,
+    "voltage": 1.8419,
+    "decibels": 81.3,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 11
+  },
+  {
+    "timestamp": "2025-12-04T18:48:04.461288",
+    "adc": 563,
+    "voltage": 1.8161,
+    "decibels": 81.2,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 12
+  },
+  {
+    "timestamp": "2025-12-04T18:48:04.868087",
+    "adc": 572,
+    "voltage": 1.8452,
+    "decibels": 81.3,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 13
+  },
+  {
+    "timestamp": "2025-12-04T18:48:05.376905",
+    "adc": 534,
+    "voltage": 1.7226,
+    "decibels": 80.7,
+    "analog_detected": false,
+    "digital_detected": true,
+    "total_analog": 1,
+    "total_digital": 14
+  }
+]

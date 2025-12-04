@@ -1,0 +1,22 @@
+# Sound monitoring configuration
+
+# Analog threshold (0-1023, lower = more sensitive)
+# Recommended: 3-10 for dog barking detection
+analog_threshold: 5
+
+# Use analog threshold detection (more sensitive than digital)
+use_analog_threshold: true
+
+# Sample interval in seconds (how often to check for sound)
+# Lower = more responsive but uses more CPU
+sample_interval: 0.1
+
+# Data storage directory
+data_dir: "data/sound"
+
+# Continuous monitoring (true) or timed duration (false)
+continuous: true
+
+# Duration in seconds (only used if continuous: false)
+duration_seconds: 3600
+

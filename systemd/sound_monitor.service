@@ -1,0 +1,16 @@
+[Unit]
+Description=Sound Monitor - Dog Barking Detection
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/oivind/projects/valpevakt/
+ExecStart=/home/oivind/projects/valpevakt/.venv/bin/python3 /home/oivind/projects/valpevakt/src/sound/sound_service.py
+User=oivind
+Restart=always
+RestartSec=10
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
+
