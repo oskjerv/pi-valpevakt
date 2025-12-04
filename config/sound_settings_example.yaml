@@ -7,6 +7,13 @@ analog_threshold: 5
 # Use analog threshold detection (more sensitive than digital)
 use_analog_threshold: true
 
+# Digital threshold (software-based, adjustable)
+# Set to null/None to use hardware digital output (potentiometer controlled)
+# Set to a number (0-1023) to use software threshold based on analog readings
+# Higher value = less sensitive (only louder sounds trigger)
+# Recommended: 20-50 for dog barking (louder than analog threshold)
+digital_threshold_adc: null  # null = use hardware, or set to number like 30
+
 # Sample interval in seconds (how often to check for sound)
 # Lower = more responsive but uses more CPU
 sample_interval: 0.1

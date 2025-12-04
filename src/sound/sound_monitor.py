@@ -26,12 +26,20 @@ class SoundMonitor:
         self.config = config
         self.analog_threshold = config.get('analog_threshold', 5)
         self.use_analog_threshold = config.get('use_analog_threshold', True)
+        
+        # Digital threshold (software-based using analog readings)
+        # If set, uses analog ADC values but behaves like digital output
+        # None = use hardware digital output, number = software threshold
+        self.digital_threshold_adc = config.get('digital_threshold_adc', None)
+        self.use_hardware_digital = self.digital_threshold_adc is None
+        
         self.sample_interval = config.get('sample_interval', 0.1)  # seconds
         
         # Statistics
         self.analog_detections = 0
         self.digital_detections = 0
         self.last_digital_state = GPIO.LOW
+        self.last_digital_above_threshold = False
         self.last_analog_above_threshold = False
         
         # Initialize GPIO
@@ -84,10 +92,7 @@ class SoundMonitor:
     
     def check_sound(self) -> Optional[Dict]:
         """Check for sound detection, returns event dict if detected"""
-        # Read digital input
-        digital_state = GPIO.input(SOUND_SENSOR_DO)
-        
-        # Read analog value
+        # Read analog value first (needed for both analog and software digital)
         adc_value = self.read_adc(ADC_CHANNEL)
         
         if adc_value is None:
@@ -95,6 +100,17 @@ class SoundMonitor:
         
         voltage = self.adc_to_voltage(adc_value)
         db = self.voltage_to_decibels(voltage)
+        
+        # Determine digital state
+        if self.use_hardware_digital:
+            # Use hardware digital output
+            digital_state = GPIO.input(SOUND_SENSOR_DO)
+            digital_above_threshold = (digital_state == GPIO.HIGH)
+        else:
+            # Use software digital threshold (based on analog readings)
+            digital_above_threshold = adc_value >= self.digital_threshold_adc
+            # For software digital, we track state but don't read GPIO
+            digital_state = GPIO.HIGH if digital_above_threshold else GPIO.LOW
         
         # Check analog threshold
         analog_above_threshold = adc_value >= self.analog_threshold
@@ -107,18 +123,19 @@ class SoundMonitor:
                 analog_detected = True
                 self.analog_detections += 1
         
-        # Detect digital output rising edge
-        if digital_state == GPIO.HIGH and self.last_digital_state == GPIO.LOW:
+        # Detect digital threshold crossing (hardware or software)
+        if digital_above_threshold and not self.last_digital_above_threshold:
             digital_detected = True
             self.digital_detections += 1
         
         # Update state
         self.last_analog_above_threshold = analog_above_threshold
+        self.last_digital_above_threshold = digital_above_threshold
         self.last_digital_state = digital_state
         
         # Return event if detected
         if analog_detected or digital_detected:
-            return {
+            event = {
                 'timestamp': datetime.now().isoformat(),
                 'adc': adc_value,
                 'voltage': round(voltage, 4),
@@ -128,6 +145,13 @@ class SoundMonitor:
                 'total_analog': self.analog_detections,
                 'total_digital': self.digital_detections
             }
+            # Add info about which digital mode is used
+            if not self.use_hardware_digital:
+                event['digital_mode'] = 'software'
+                event['digital_threshold'] = self.digital_threshold_adc
+            else:
+                event['digital_mode'] = 'hardware'
+            return event
         
         return None
     
