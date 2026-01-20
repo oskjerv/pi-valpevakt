@@ -33,14 +33,35 @@ def load_events(date_str: str = None, data_dir: str = "data/sound"):
     
     return events
 
-def analyze_events(events):
-    """Analyze and display statistics"""
+def analyze_events(events, date_str: str = None):
+    """Analyze and display statistics
+    
+    Args:
+        events: List of event dictionaries
+        date_str: Optional date string (YYYYMMDD) to display in output
+    """
     if not events:
+        print("=" * 60)
+        print("Sound Detection Analysis")
+        if date_str:
+            try:
+                date_obj = datetime.strptime(date_str, '%Y%m%d')
+                print(f"Date: {date_obj.strftime('%Y-%m-%d (%A)')}")
+            except:
+                print(f"Date: {date_str}")
+        print("=" * 60)
         print("No events found")
         return
     
     print("=" * 60)
     print("Sound Detection Analysis")
+    if date_str:
+        # Format date nicely
+        try:
+            date_obj = datetime.strptime(date_str, '%Y%m%d')
+            print(f"Date: {date_obj.strftime('%Y-%m-%d (%A)')}")
+        except:
+            print(f"Date: {date_str}")
     print("=" * 60)
     print(f"Total events: {len(events)}")
     print()
@@ -102,26 +123,50 @@ def analyze_events(events):
 
 def main():
     """Main function"""
+    date_str = None
+    
     if len(sys.argv) > 1:
         if sys.argv[1] == "--today":
-            today = datetime.now().strftime('%Y%m%d')
-            events = load_events(today)
+            date_str = datetime.now().strftime('%Y%m%d')
+            events = load_events(date_str)
         elif sys.argv[1] == "--date":
             if len(sys.argv) < 3:
                 print("Usage: --date YYYYMMDD")
                 sys.exit(1)
-            events = load_events(sys.argv[2])
+            date_str = sys.argv[2]
+            events = load_events(date_str)
         elif sys.argv[1] == "--all":
             events = load_events()
+        elif sys.argv[1] in ["--help", "-h"]:
+            print("Usage: python3 sound_analyzer.py [OPTIONS]")
+            print("\nOptions:")
+            print("  --today              Analyze today's events")
+            print("  --date YYYYMMDD      Analyze specific date (e.g., 20241204)")
+            print("  YYYYMMDD             Analyze specific date (e.g., 20241204)")
+            print("  --all                Analyze all events")
+            print("  --help, -h           Show this help")
+            print("\nExamples:")
+            print("  python3 sound_analyzer.py")
+            print("  python3 sound_analyzer.py --today")
+            print("  python3 sound_analyzer.py 20241204")
+            print("  python3 sound_analyzer.py --date 20241204")
+            sys.exit(0)
         else:
-            print("Usage: python3 sound_analyzer.py [--today|--date YYYYMMDD|--all]")
-            sys.exit(1)
+            # Try to parse as date directly (YYYYMMDD format)
+            if len(sys.argv[1]) == 8 and sys.argv[1].isdigit():
+                date_str = sys.argv[1]
+                events = load_events(date_str)
+            else:
+                print(f"Unknown option: {sys.argv[1]}")
+                print("Usage: python3 sound_analyzer.py [--today|--date YYYYMMDD|YYYYMMDD|--all]")
+                print("Use --help for more information")
+                sys.exit(1)
     else:
         # Default: today
-        today = datetime.now().strftime('%Y%m%d')
-        events = load_events(today)
+        date_str = datetime.now().strftime('%Y%m%d')
+        events = load_events(date_str)
     
-    analyze_events(events)
+    analyze_events(events, date_str)
 
 if __name__ == "__main__":
     main()
